@@ -44,7 +44,7 @@ body {
 
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--border); color: var(--text); text-decoration: none; background: var(--bg-elev); box-shadow: var(--shadow); }
 .btn:hover { transform: translateY(-1px); }
-.btn-primary { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; border: none; }
+.btn-primary { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white !important; border: none; }
 
 .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 36px; padding: 64px 0; }
 .hero .hero-content h1 { font-size: 42px; margin: 0 0 10px; }
