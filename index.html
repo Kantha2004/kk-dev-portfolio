@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full-Stack Developer Portfolio">
+  <title>KK Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#0b0f19">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="logo">&lt;KK Dev /&gt;</a>
+      <nav>
+        <button id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">🌙</button>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact" class="btn btn-primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero container">
+      <div class="hero-content">
+        <h1>Hi, I'm <span class="accent" id="devName"></span></h1>
+        <p class="subtitle">Full-Stack Developer crafting robust backends and delightful frontends.</p>
+        <div class="actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+        </div>
+        <div class="socials" id="socialLinks"></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="glow"></div>
+      </div>
+    </section>
+
+    <section id="about" class="section container">
+      <h2>About</h2>
+      <p id="aboutText">I build scalable services, intuitive UIs, and ship features users love.</p>
+      <ul class="highlights" id="aboutHighlights"></ul>
+    </section>
+
+    <section id="skills" class="section container">
+      <h2>Skills</h2>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+
+    <section id="projects" class="section container">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <div class="filters" id="projectFilters"></div>
+      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+
+    <section id="experience" class="section container">
+      <h2>Experience</h2>
+      <div class="timeline" id="expTimeline"></div>
+    </section>
+
+    <section id="contact" class="section container">
+      <h2>Contact</h2>
+      <p>Have a project or role in mind? Let's talk.</p>
+      <a id="contactEmail" class="btn btn-primary">Email Me</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> <span id="footerName"></span>. Built with ♥.</p>
+    </div>
+  </footer>
+
+  <script src="/data.js" defer></script>
+  <script src="/main.js" defer></script>
+  <script>
+    // Fallback theme early to avoid flash
+    (function(){
+      try {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
+
