@@ -45,10 +45,23 @@ const Projects: React.FC<ProjectsProps> = ({ projects, tags }) => {
               rel="noopener noreferrer"
               className="border border-border bg-card rounded-2xl overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-2xl hover:shadow-accent/5 hover:border-accent/40 cursor-pointer no-underline text-inherit"
             >
-              <div 
-                className="h-40 bg-cover bg-center border-b border-border group-hover:scale-105 transition-transform duration-500" 
-                style={{ backgroundImage: `url(${p.image})` }}
-              />
+            <div className="h-40 overflow-hidden border-b border-border relative">
+              {p.video ? (
+                <video 
+                  src={p.video} 
+                  muted 
+                  autoPlay 
+                  loop 
+                  playsInline 
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <div 
+                  className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" 
+                  style={{ backgroundImage: `url(${p.image})` }}
+                />
+              )}
+            </div>
               <div className="p-4 flex flex-col gap-2.5 flex-grow">
                 <h3 className="text-xl font-bold m-0 group-hover:text-accent transition-colors">{p.title}</h3>
                 <p className="text-muted text-sm line-clamp-2">{p.description}</p>

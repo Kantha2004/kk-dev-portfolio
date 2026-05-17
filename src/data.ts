@@ -25,6 +25,7 @@ export interface Project {
   tags: string[];
   stack: string[];
   image: string;
+  video?: string;
   links: ProjectLinks;
 }
 
@@ -91,12 +92,13 @@ export const PORTFOLIO_DATA: PortfolioData = {
   projectTags: ["All", "Fun-Projects", "Web", "Backend", "Open Source", "In Progress"],
   projects: [
     {
-      title: "clipd",
+      title: "Clipd",
       description: "A fast, minimal clipboard history daemon for Linux (Wayland/X11) with instant search and direct paste.",
       tags: ["Linux", "System", "Open Source"],
       stack: ["Go", "Wayland", "X11"],
-      image: "https://github.com/Kantha2004/clipd/raw/main/screenshot.png",
-      links: { repo: "https://github.com/Kantha2004/clipd" }
+      image: "/images/clipd.png",
+      video: "/videos/clipd-demo.webm",
+      links: { live: "https://github.com/Kantha2004/clipd" }
     },
     {
       title: "Game of Life",
