@@ -1,5 +1,6 @@
 import React from 'react';
-import { Skill } from '../data';
+import { Skill } from '../types/portfolio';
+import Section from './common/Section';
 
 interface SkillsProps {
   skills: Skill[];
@@ -9,8 +10,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
   const categories = Array.from(new Set(skills.map(s => s.category)));
 
   return (
-    <section id="skills" className="section container">
-      <h2 className="text-3xl font-bold mb-8">Technical Skills</h2>
+    <Section id="skills" title="Technical Skills">
       <div className="grid md:grid-cols-2 gap-8">
         {categories.map(cat => (
           <div key={cat} className="space-y-4">
@@ -36,7 +36,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
           </div>
         ))}
       </div>
-    </section>
+    </Section>
   );
 };
 
