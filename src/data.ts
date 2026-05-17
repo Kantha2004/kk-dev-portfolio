@@ -1,9 +1,57 @@
-// Customize your portfolio content here
-window.PORTFOLIO_DATA = {
+export interface Social {
+  label: string;
+  url: string;
+}
+
+export interface About {
+  text: string;
+  highlights: string[];
+}
+
+export interface Skill {
+  name: string;
+  level: string;
+}
+
+export interface ProjectLinks {
+  live?: string;
+  repo?: string;
+}
+
+export interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  stack: string[];
+  image: string;
+  links: ProjectLinks;
+}
+
+export interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  items: string[];
+}
+
+export interface PortfolioData {
+  name: string;
+  role: string;
+  email: string;
+  resumeUrl: string;
+  socials: Social[];
+  about: About;
+  skills: Skill[];
+  projectTags: string[];
+  projects: Project[];
+  experience: Experience[];
+}
+
+export const PORTFOLIO_DATA: PortfolioData = {
   name: "Kanthakumar K",
   role: "Full-Stack Developer",
   email: "kumarkantha41@gmail.com",
-  resumeUrl: "", // no resume for now
+  resumeUrl: "",
   socials: [
     { label: "Instagram", url: "https://www.instagram.com/kanthakumar2004" },
     { label: "X (Twitter)", url: "https://x.com/kanthakumar2004" },
@@ -30,11 +78,19 @@ window.PORTFOLIO_DATA = {
   projectTags: ["All", "Fun-Projects", "Web", "Backend", "Open Source", "In Progress"],
   projects: [
     {
+      title: "clipd",
+      description: "A fast, minimal clipboard history daemon for Linux (Wayland/X11) with instant search and direct paste.",
+      tags: ["Linux", "System", "Open Source"],
+      stack: ["Go", "Wayland", "X11"],
+      image: "https://github.com/Kantha2004/clipd/raw/main/screenshot.png",
+      links: { repo: "https://github.com/Kantha2004/clipd" }
+    },
+    {
       title: "Game of Life",
       description: "Interactive Conway's Game of Life playable in the browser.",
       tags: ["Fun-Projects", "Web"],
       stack: ["Vite", "JavaScript", "Canvas"],
-      image: "/public/images/gameoflife.png",
+      image: "/images/gameoflife.png",
       links: { live: "https://game-of-life-kk.netlify.app" }
     },
     {
@@ -42,7 +98,7 @@ window.PORTFOLIO_DATA = {
       description: "Text morphing into particles with smooth animations.",
       tags: ["Fun-Projects", "Web"],
       stack: ["Vite", "JavaScript", "Canvas"],
-      image: "/public/images/textparticaleffect.png",
+      image: "/images/textparticaleffect.png",
       links: { live: "https://textparticaleffect.netlify.app/" }
     },
     {
@@ -65,4 +121,3 @@ window.PORTFOLIO_DATA = {
     }
   ]
 };
-
