@@ -9,7 +9,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ name, role, socials }) => {
   return (
-    <section id="home" className="container grid md:grid-cols-[1.2fr_0.8fr] items-center gap-9 py-16">
+    <section id="home" className="container grid md:grid-cols-[1.2fr_0.8fr] items-center gap-9 py-10 md:py-20">
       <div className="flex flex-col gap-2.5">
         <h1 className="text-4xl md:text-5xl font-bold m-0 leading-tight">
           Hi, I'm <span className="text-accent">{name}</span>
@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ name, role, socials }) => {
         </div>
       </div>
       <div className="relative h-70 rounded-[20px] bg-[radial-gradient(60%_80%_at_50%_50%,var(--hero-glow)_0%,transparent_70%)] border border-border overflow-hidden hidden md:block" aria-hidden="true">
-        <div className="absolute w-[220px] h-[220px] bg-[radial-gradient(circle,var(--hero-bubble),transparent)] rounded-full top-[20%] left-[20%] blur-[10px] animate-float"></div>
+        <div className="absolute w-[220px] h-[220px] bg-[radial-gradient(circle,var(--hero-bubble),transparent)] rounded-full top-[20%] left-[20%] blur-[10px] animate-bounce-slow"></div>
       </div>
     </section>
   );

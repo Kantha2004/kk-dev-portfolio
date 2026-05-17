@@ -41,12 +41,16 @@
 
 @keyframes float {
   0%, 100% { transform: translateY(0) translateX(0); }
-  33% { transform: translateY(-10px) translateX(5px); }
+  33% { transform: translateY(-40px) translateX(5px); }
   66% { transform: translateY(5px) translateX(-5px); }
 }
 
 .animate-float {
-  animation: float 8s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce 3s infinite;
 }
 
 @layer base {
@@ -68,15 +72,15 @@
 
 /* Custom component classes that are harder to do with pure tailwind or just to keep consistency for now */
 .btn {
-  @apply inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-border text-text bg-bg-elev shadow-lg transition-transform hover:-translate-y-0.5;
+  @apply inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-border text-text bg-bg-elev shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent;
 }
 
 .btn-primary {
-  @apply bg-linear-to-br from-primary to-accent text-white border-none;
+  @apply bg-linear-to-br from-primary to-accent text-white border-none hover:shadow-accent/20 hover:text-white;
 }
 
 .section {
-  @apply py-14;
+  @apply py-10 md:py-16;
 }
 
 .container {

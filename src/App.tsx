@@ -49,20 +49,20 @@ const App: React.FC = () => {
         theme={theme} 
         toggleTheme={toggleTheme} 
       />
-      <main className="space-y-4">
+      <main>
         <Hero 
           name={data.name} 
           role={data.role} 
           socials={data.socials} 
         />
         <About about={data.about} />
+        <Experience experience={data.experience} />
         <Skills skills={data.skills} />
         <Projects 
           projects={data.projects} 
           tags={data.projectTags} 
         />
-        <Experience experience={data.experience} />
-        <Contact email={data.email} />
+        <Contact email={data.email} socials={data.socials} />
       </main>
       <Footer name={data.name} />
     </div>

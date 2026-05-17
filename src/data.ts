@@ -11,6 +11,7 @@ export interface About {
 export interface Skill {
   name: string;
   level: string;
+  category: "Languages" | "Backend" | "Frontend" | "Infrastructure & Testing";
 }
 
 export interface ProjectLinks {
@@ -58,22 +59,34 @@ export const PORTFOLIO_DATA: PortfolioData = {
     { label: "LinkedIn", url: "https://in.linkedin.com/in/kanthakumar-k-645401233" }
   ],
   about: {
-    text: "I build web apps end-to-end with modern JS frameworks and pragmatic APIs.",
+    text: "I am a Full-Stack Developer with a strong foundation in building real-time medical applications and scalable SaaS platforms. I specialize in bridging the gap between complex backend logic and intuitive frontend experiences, with a focus on writing clean, testable code.",
     highlights: [
-      "Full-stack developer focused on DX and performance",
-      "Comfortable across Nuxt/React frontends and FastAPI/Nest backends",
-      "Open-source contributor to CornerstoneJS 3D",
-      "Enjoy building fun side projects and OSS"
+      "Experienced in AI-driven data pipelines and multi-tenant architectures",
+      "Expertise in building diagnostic-grade medical user interfaces",
+      "Proficient in Nuxt (Vue 3) + CornerstoneJS for real-time DICOM visualization",
+      "Passionate about low-latency systems and sub-millisecond precision"
     ]
   },
   skills: [
-    { name: "Nuxt.js", level: "Intermediate" },
-    { name: "React", level: "Intermediate" },
-    { name: "NestJS", level: "Intermediate" },
-    { name: "FastAPI", level: "Intermediate" },
-    { name: "Go", level: "Intermediate" },
-    { name: "PostgreSQL", level: "Intermediate" },
-    { name: "MySQL", level: "Intermediate" }
+    { name: "TypeScript", level: "Intermediate", category: "Languages" },
+    { name: "JavaScript", level: "Intermediate", category: "Languages" },
+    { name: "Python", level: "Intermediate", category: "Languages" },
+    { name: "Go", level: "Intermediate", category: "Languages" },
+    { name: "SQL", level: "Intermediate", category: "Languages" },
+    { name: "FastAPI", level: "Intermediate", category: "Backend" },
+    { name: "NestJS", level: "Intermediate", category: "Backend" },
+    { name: "PostgreSQL", level: "Intermediate", category: "Backend" },
+    { name: "Redis", level: "Intermediate", category: "Backend" },
+    { name: "Nuxt.js", level: "Intermediate", category: "Frontend" },
+    { name: "Vue.js", level: "Intermediate", category: "Frontend" },
+    { name: "React", level: "Intermediate", category: "Frontend" },
+    { name: "Tailwind CSS", level: "Intermediate", category: "Frontend" },
+    { name: "CornerstoneJS", level: "Intermediate", category: "Frontend" },
+    { name: "AWS", level: "Intermediate", category: "Infrastructure & Testing" },
+    { name: "Docker", level: "Intermediate", category: "Infrastructure & Testing" },
+    { name: "Vitest", level: "Intermediate", category: "Infrastructure & Testing" },
+    { name: "Pytest", level: "Intermediate", category: "Infrastructure & Testing" },
+    { name: "Locust", level: "Intermediate", category: "Infrastructure & Testing" }
   ],
   projectTags: ["All", "Fun-Projects", "Web", "Backend", "Open Source", "In Progress"],
   projects: [
@@ -112,11 +125,17 @@ export const PORTFOLIO_DATA: PortfolioData = {
   ],
   experience: [
     {
-      company: "Finstein Advisory, Chennai",
-      role: "Full-Stack Developer",
+      company: "Finstein Advisory Services LLP – Chennai",
+      role: "Full Stack Developer",
       period: "Jul 2024 — Present",
       items: [
-        "Building and maintaining web apps across frontend and backend"
+        "Building scalable, production-grade healthcare applications across AI, backend systems, and real-time web platforms.",
+        "Built a real-time AI/ML inference pipeline using YOLO + ONNX Runtime on NVIDIA GPUs for ultrasound imaging classification.",
+        "Engineered a high-performance Python multiprocessing system to synchronize ultrasound video streams with IoT sensor data with sub-millisecond precision.",
+        "Developed a diagnostic-grade frontend using Nuxt (Vue 3) + CornerstoneJS for real-time DICOM image visualization and AI-assisted annotations.",
+        "Architected a multi-tenant backend using NestJS + TypeORM, ensuring secure data isolation across multiple medical facilities.",
+        "Integrated OpenAI APIs for intelligent medical assistance and automated document summarization.",
+        "Optimized background processing (SMS, Email, PDF generation) using Redis + BullMQ for high-throughput task execution."
       ]
     }
   ]
