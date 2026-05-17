@@ -1,0 +1,39 @@
+{
+  "name": "kk-dev-portfolio",
+  "version": "1.0.0",
+  "description": "I build web applications end-to-end with modern JS frameworks and pragmatic APIs. Comfortable across Nuxt/React frontends and FastAPI/Nest/Go backends. Passionate about performance, DX, and shipping useful products.",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kantha2004/kk-dev-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kantha2004/kk-dev-portfolio/issues"
+  },
+  "homepage": "https://github.com/Kantha2004/kk-dev-portfolio#readme",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "@tanstack/react-query": "^5.100.10",
+    "lucide-react": "^1.16.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "tsc-alias": "^1.8.17",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.13",
+    "vite-tsconfig-paths": "^6.1.1"
+  }
+}
