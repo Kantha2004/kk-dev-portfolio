@@ -16,11 +16,13 @@
   --bg-elev: #121829;
   --text: #e6e8ee;
   --muted: #a7b0c0;
-  --accent: #6aa1ff;
-  --primary: #7aa2ff;
+  --accent: #f97316;
+  --primary: #fb923c;
   --card: #0f1424;
   --border: #1a2238;
   --shadow: 0 10px 30px rgba(0,0,0,0.35);
+  --hero-glow: #2a1a12;
+  --hero-bubble: rgba(249, 115, 22, 0.2);
 }
 
 .light {
@@ -28,11 +30,23 @@
   --bg-elev: #ffffff;
   --text: #0b0f19;
   --muted: #4b5565;
-  --accent: #2b6cff;
-  --primary: #2b6cff;
+  --accent: #ea580c;
+  --primary: #f97316;
   --card: #ffffff;
   --border: #e5e7ef;
   --shadow: 0 10px 25px rgba(0,0,0,0.08);
+  --hero-glow: #fff7ed;
+  --hero-bubble: rgba(249, 115, 22, 0.15);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-10px) translateX(5px); }
+  66% { transform: translateY(5px) translateX(-5px); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
 }
 
 @layer base {

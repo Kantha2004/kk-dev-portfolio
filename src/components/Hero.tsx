@@ -34,8 +34,8 @@ const Hero: React.FC<HeroProps> = ({ name, role, socials }) => {
           ))}
         </div>
       </div>
-      <div className="relative h-70 rounded-[20px] bg-[radial-gradient(60%_80%_at_50%_50%,#1a2442_0%,rgba(26,36,66,0)_70%)] border border-border overflow-hidden hidden md:block" aria-hidden="true">
-        <div className="absolute w-[220px] h-[220px] bg-[radial-gradient(circle,rgba(122,162,255,0.35),rgba(122,162,255,0))] rounded-full top-[20%] left-[20%] blur-[10px] animate-bounce"></div>
+      <div className="relative h-70 rounded-[20px] bg-[radial-gradient(60%_80%_at_50%_50%,var(--hero-glow)_0%,transparent_70%)] border border-border overflow-hidden hidden md:block" aria-hidden="true">
+        <div className="absolute w-[220px] h-[220px] bg-[radial-gradient(circle,var(--hero-bubble),transparent)] rounded-full top-[20%] left-[20%] blur-[10px] animate-float"></div>
       </div>
     </section>
   );
