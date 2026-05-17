@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Project } from '../data';
+import { Project } from '../types/portfolio';
+import ProjectCard from './ProjectCard';
+import Section from './common/Section';
 
 interface ProjectsProps {
   projects: Project[];
@@ -13,83 +15,32 @@ const Projects: React.FC<ProjectsProps> = ({ projects, tags }) => {
     p => activeTag === 'All' || p.tags.includes(activeTag)
   );
 
+  const filterButtons = (
+    <div className="flex flex-wrap gap-2.5">
+      {tags.map(t => (
+        <button 
+          key={t} 
+          className={`px-3 py-2 rounded-full border cursor-pointer transition-colors text-sm font-medium ${
+            activeTag === t 
+              ? 'bg-accent text-white border-transparent' 
+              : 'bg-bg-elev text-muted border-border hover:border-accent'
+          }`}
+          onClick={() => setActiveTag(t)}
+        >
+          {t}
+        </button>
+      ))}
+    </div>
+  );
+
   return (
-    <section id="projects" className="section container">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
-        <h2 className="text-3xl font-bold m-0">Projects</h2>
-        <div className="flex flex-wrap gap-2.5">
-          {tags.map(t => (
-            <button 
-              key={t} 
-              className={`px-3 py-2 rounded-full border cursor-pointer transition-colors text-sm font-medium ${
-                activeTag === t 
-                  ? 'bg-accent text-white border-transparent' 
-                  : 'bg-bg-elev text-muted border-border hover:border-accent'
-              }`}
-              onClick={() => setActiveTag(t)}
-            >
-              {t}
-            </button>
-          ))}
-        </div>
-      </div>
+    <Section id="projects" title="Projects" headerRight={filterButtons}>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredProjects.map((p, idx) => {
-          const primaryLink = p.links.live || p.links.repo;
-          
-          return (
-            <a 
-              key={idx} 
-              href={primaryLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-border bg-card rounded-2xl overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-2xl hover:shadow-accent/5 hover:border-accent/40 cursor-pointer no-underline text-inherit"
-            >
-            <div className="h-40 overflow-hidden border-b border-border relative">
-              {p.video ? (
-                <video 
-                  src={p.video} 
-                  muted 
-                  autoPlay 
-                  loop 
-                  playsInline 
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-              ) : (
-                <div 
-                  className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" 
-                  style={{ backgroundImage: `url(${p.image})` }}
-                />
-              )}
-            </div>
-              <div className="p-4 flex flex-col gap-2.5 flex-grow">
-                <h3 className="text-xl font-bold m-0 group-hover:text-accent transition-colors">{p.title}</h3>
-                <p className="text-muted text-sm line-clamp-2">{p.description}</p>
-                <div className="flex flex-wrap gap-1.5 mt-auto">
-                  {p.stack.map((s, sIdx) => (
-                    <span key={sIdx} className="text-[10px] uppercase font-bold px-2.5 py-1 rounded-full bg-bg-elev border border-border text-muted group-hover:border-accent/20 group-hover:text-accent/80 transition-all">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-2.5 mt-2.5">
-                  {p.links.live && (
-                    <span className="btn btn-primary text-xs py-1.5 px-3">
-                      Live
-                    </span>
-                  )}
-                  {p.links.repo && (
-                    <span className="btn text-xs py-1.5 px-3">
-                      Code
-                    </span>
-                  )}
-                </div>
-              </div>
-            </a>
-          );
-        })}
+        {filteredProjects.map((p, idx) => (
+          <ProjectCard key={idx} project={p} />
+        ))}
       </div>
-    </section>
+    </Section>
   );
 };
 

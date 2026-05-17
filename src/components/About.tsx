@@ -1,5 +1,6 @@
 import React from 'react';
-import { About as AboutType } from '../data';
+import { About as AboutType } from '../types/portfolio';
+import Section from './common/Section';
 
 interface AboutProps {
   about: AboutType;
@@ -7,15 +8,17 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ about }) => {
   return (
-    <section id="about" className="section container">
-      <h2 className="text-3xl font-bold mb-4.5">About</h2>
+    <Section id="about" title="About">
       <p className="text-lg leading-relaxed">{about.text}</p>
-      <ul className="grid sm:grid-cols-2 gap-2.5 pl-4.5 mt-6 list-disc">
+      <div className="grid sm:grid-cols-2 gap-4 mt-8">
         {about.highlights.map((item, idx) => (
-          <li key={idx} className="text-muted">{item}</li>
+          <div key={idx} className="flex items-start gap-3">
+            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+            <span className="text-muted leading-snug">{item}</span>
+          </div>
         ))}
-      </ul>
-    </section>
+      </div>
+    </Section>
   );
 };
 

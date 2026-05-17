@@ -1,5 +1,5 @@
 import React from 'react';
-import { Social } from '../data';
+import { Social } from '../types/portfolio';
 
 interface HeroProps {
   name: string;
