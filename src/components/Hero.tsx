@@ -1,5 +1,6 @@
 import React from 'react';
 import { Social } from '../types/portfolio';
+import SocialIcon from './common/SocialIcon';
 
 interface HeroProps {
   name: string;
@@ -9,33 +10,38 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ name, role, socials }) => {
   return (
-    <section id="home" className="container grid md:grid-cols-[1.2fr_0.8fr] items-center gap-9 py-10 md:py-20">
-      <div className="flex flex-col gap-2.5">
-        <h1 className="text-4xl md:text-5xl font-bold m-0 leading-tight">
-          Hi, I'm <span className="text-accent">{name}</span>
+    <section id="home" className="container flex flex-col gap-6 md:gap-8 py-10 md:py-20">
+      <div className="flex gap-2 md:gap-4">
+        {socials.map((s, idx) => (
+          <a 
+            key={idx} 
+            href={s.url} 
+            className="border-2 md:border-4 border-border p-2 md:p-3 bg-bg shadow-[3px_3px_0px_0px_var(--shadow-color)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            title={s.label}
+            aria-label={s.label}
+          >
+            <SocialIcon label={s.label} />
+          </a>
+        ))}
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <h1 className="text-4xl sm:text-5xl md:text-8xl font-black leading-tight md:leading-none m-0">
+          HI, I'M <span className="text-accent underline decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8 decoration-border">{name}</span>
         </h1>
-        <p className="text-muted max-w-[640px] text-lg">
-          {role}
-        </p>
-        <div className="flex gap-3 mt-4.5 mb-2">
-          <a href="#projects" className="btn btn-primary">View Projects</a>
-        </div>
-        <div className="flex gap-3 mt-2.5">
-          {socials.map((s, idx) => (
-            <a 
-              key={idx} 
-              href={s.url} 
-              className="btn" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              {s.label}
-            </a>
-          ))}
+        <div className="bg-text text-bg p-4 border-2 md:border-4 border-border shadow-[4px_4px_0px_0px_var(--accent)] md:shadow-[8px_8px_0px_0px_var(--accent)] inline-block self-start">
+          <p className="text-lg md:text-2xl font-bold">
+            {role}
+          </p>
         </div>
       </div>
-      <div className="relative h-70 rounded-[20px] bg-[radial-gradient(60%_80%_at_50%_50%,var(--hero-glow)_0%,transparent_70%)] border border-border overflow-hidden hidden md:block" aria-hidden="true">
-        <div className="absolute w-[220px] h-[220px] bg-[radial-gradient(circle,var(--hero-bubble),transparent)] rounded-full top-[20%] left-[20%] blur-[10px] animate-bounce-slow"></div>
+      
+      <div className="flex flex-wrap gap-4 md:gap-6 items-center mt-2 md:mt-4">
+        <a href="#projects" className="btn btn-primary text-lg md:text-xl px-6 md:px-8 py-3 md:py-4">
+          View Projects
+        </a>
       </div>
     </section>
   );

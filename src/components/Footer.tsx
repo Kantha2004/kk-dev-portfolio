@@ -8,7 +8,7 @@ const Footer: React.FC<FooterProps> = ({ name }) => {
   return (
     <footer className="border-t border-border py-8 mt-12 text-muted text-center">
       <div className="container">
-        <p className="text-sm">© {new Date().getFullYear()} {name}. Built with ♥ using React & Tailwind v4.</p>
+        <p className="text-sm">© {new Date().getFullYear()} {name}. Built with <span role="img" aria-label="love">♥</span> using React & Tailwind v4.</p>
       </div>
     </footer>
   );

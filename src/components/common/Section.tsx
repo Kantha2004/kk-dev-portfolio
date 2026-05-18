@@ -1,4 +1,5 @@
 import React from 'react';
+import SectionHeading from './SectionHeading';
 
 interface SectionProps {
   id: string;
@@ -12,8 +13,8 @@ const Section: React.FC<SectionProps> = ({ id, title, children, className = '', 
   return (
     <section id={id} className={`section container ${className}`}>
       {(title || headerRight) && (
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
-          {title && <h2 className="text-3xl font-bold m-0">{title}</h2>}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8 md:mb-10">
+          {title && <SectionHeading>{title}</SectionHeading>}
           {headerRight}
         </div>
       )}

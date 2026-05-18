@@ -4,21 +4,26 @@ import Section from './common/Section';
 
 interface ExperienceProps {
   experience: ExperienceType[];
+  className?: string;
 }
 
 const Experience: React.FC<ExperienceProps> = ({ experience }) => {
   return (
-    <Section id="experience" title="Experience">
-      <div className="flex flex-col gap-3.5">
+    <Section id="experience" title="EXPERIENCE">
+      <div className="flex flex-col gap-6 md:gap-8">
         {experience.map((e, idx) => (
-          <div key={idx} className="relative pl-6 border-l-2 border-border hover:border-accent/40 transition-colors py-1 group">
-            <div className="absolute -left-[7px] top-2 w-3 h-3 rounded-full bg-border group-hover:bg-accent transition-colors border-2 border-bg" />
-            <div className="font-bold text-lg">{e.role} · {e.company}</div>
-            <div className="text-muted text-sm mb-2.5 font-medium">{e.period}</div>
-            <ul className="space-y-2 mt-2">
+          <div key={idx} className="brutalist-card bg-card flex flex-col gap-3 md:gap-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+              <h3 className="text-xl md:text-2xl font-black text-text">{e.role}</h3>
+              <span className="bg-text text-bg px-3 py-1 font-bold text-xs md:text-sm border-2 border-border self-start md:self-auto">
+                {e.period}
+              </span>
+            </div>
+            <div className="text-accent font-black text-base md:text-lg underline decoration-2 md:decoration-4 underline-offset-4 decoration-border">{e.company}</div>
+            <ul className="grid gap-2 md:gap-3 mt-2 md:mt-4">
               {e.items.map((item, iIdx) => (
-                <li key={iIdx} className="text-muted text-[15px] flex items-start gap-2.5">
-                  <span className="mt-1.5 w-1 h-1 rounded-full bg-muted shrink-0" />
+                <li key={iIdx} className="flex items-start gap-3 p-2 md:p-3 border-2 border-border bg-bg-elev font-bold text-xs md:text-sm">
+                  <span className="w-2 h-2 bg-text mt-1 md:mt-1.5 shrink-0" aria-hidden="true" />
                   {item}
                 </li>
               ))}

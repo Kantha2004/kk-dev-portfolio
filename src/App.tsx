@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CustomCursor from './components/common/CustomCursor';
 import { usePortfolioData } from './hooks/usePortfolioData';
 import { useTheme } from './hooks/useTheme';
 
@@ -16,22 +17,31 @@ const App: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen text-2xl text-muted bg-bg">
-        Loading...
+      <div 
+        className="flex justify-center items-center h-screen text-2xl text-muted bg-bg"
+        role="status"
+        aria-live="polite"
+      >
+        Loading portfolio...
       </div>
     );
   }
 
   if (error || !data) {
     return (
-      <div className="flex justify-center items-center h-screen text-2xl text-red-400 bg-bg">
-        Error loading portfolio data.
+      <div 
+        className="flex justify-center items-center h-screen text-2xl text-red-400 bg-bg"
+        role="alert"
+        aria-live="assertive"
+      >
+        Error loading portfolio data. Please try again later.
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-bg text-text selection:bg-accent/30 selection:text-accent">
+    <div className="min-h-screen bg-bg text-text selection:bg-text selection:text-bg font-medium">
+      <CustomCursor />
       <Header 
         name={data.name} 
         theme={theme} 

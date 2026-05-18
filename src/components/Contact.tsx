@@ -1,11 +1,13 @@
 import React from 'react';
-import { Mail, MessageSquare, AtSign, MessageCircle, Send } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { Social } from '../types/portfolio';
+import SocialIcon from './common/SocialIcon';
 import Section from './common/Section';
 
 interface ContactProps {
   email: string;
   socials: Social[];
+  className?: string;
 }
 
 const Contact: React.FC<ContactProps> = ({ email, socials }) => {
@@ -20,44 +22,38 @@ const Contact: React.FC<ContactProps> = ({ email, socials }) => {
     return s.url;
   };
 
-  const getIcon = (label: string) => {
-    const l = label.toLowerCase();
-    if (l.includes('instagram')) return <InstagramIcon />;
-    if (l.includes('twitter')) return <TwitterIcon />;
-    if (l.includes('linkedin')) return <LinkedinIcon />;
-    return <MessageSquare size={20} />;
-  };
-
-  // Since brand icons are missing in this version of lucide-react, 
-  // we'll use generic but appropriate ones.
-  const InstagramIcon = () => <MessageCircle size={20} />;
-  const TwitterIcon = () => <Send size={20} />;
-  const LinkedinIcon = () => <AtSign size={20} />;
-
   return (
-    <Section id="contact" title="Get in Touch">
-      <p className="text-lg text-muted mb-8 max-w-2xl">
-        I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-      </p>
-      
-      <div className="flex flex-wrap gap-4">
-        <a href={`mailto:${email}`} className="btn btn-primary flex items-center gap-2 px-6 py-3">
-          <Mail size={20} />
-          Email Me
-        </a>
-        
-        {socials.map((s, idx) => (
-          <a 
-            key={idx} 
-            href={getChatUrl(s)} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn flex items-center gap-2 px-6 py-3"
-          >
-            {getIcon(s.label)}
-            Chat on {s.label.replace(' (Twitter)', '')}
+    <Section id="contact" className="pb-20">
+      <div className="brutalist-card bg-card text-text flex flex-col gap-6">
+        <div className="flex flex-wrap gap-3">
+          {socials.map((s, idx) => (
+            <a 
+              key={idx} 
+              href={getChatUrl(s)} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-3 border-2 border-border bg-bg shadow-[3px_3px_0px_0px_var(--shadow-color)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all"
+              title={s.label}
+              aria-label={s.label}
+            >
+              <SocialIcon label={s.label} className="w-6 h-6" />
+            </a>
+          ))}
+        </div>
+
+        <div>
+          <h2 className="text-4xl md:text-6xl font-black mb-6 text-accent">
+            LET'S WORK TOGETHER
+          </h2>
+          <p className="text-xl md:text-2xl font-bold mb-10 max-w-2xl">
+            I'm currently looking for new opportunities. Whether you have a project in mind or just want to connect!
+          </p>
+          
+          <a href={`mailto:${email}`} className="btn btn-primary px-10 py-5 text-2xl">
+            <Mail size={24} strokeWidth={3} aria-hidden="true" />
+            SAY HELLO
           </a>
-        ))}
+        </div>
       </div>
     </Section>
   );
