@@ -41,13 +41,16 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-bg text-text selection:bg-text selection:text-bg font-medium">
+      <a href="#about" className="skip-link">
+        Skip to main content
+      </a>
       <CustomCursor />
       <Header 
         name={data.name} 
         theme={theme} 
         toggleTheme={toggleTheme} 
       />
-      <main>
+      <main id="main-content">
         <Hero 
           name={data.name} 
           role={data.role} 

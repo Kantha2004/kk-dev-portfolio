@@ -106,8 +106,8 @@ const CustomCursor: React.FC = () => {
           /* Offset so the arrowhead tip aligns with pointer */
           margin-left: -8px; 
           margin-top: -5px;
-          /* Removed transition on opacity for instant hiding at edges */
-          transition: transform 0.15s, margin 0.3s;
+          /* Reduced transition durations for snappiness */
+          transition: transform 0.1s, opacity 0.15s, margin 0.15s;
           opacity: 0;
           filter: drop-shadow(3px 3px 0px var(--shadow-color, #000));
           display: flex;
@@ -126,7 +126,7 @@ const CustomCursor: React.FC = () => {
           fill: var(--accent, #ff6b00);
           stroke: var(--border, #000);
           stroke-width: 1.5px;
-          transition: transform 0.3s, fill 0.3s;
+          transition: transform 0.1s, fill 0.15s;
         }
         
         .cursor-outer.is-hovering svg {
